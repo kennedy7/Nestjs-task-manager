@@ -29,7 +29,7 @@ export class TasksService {
   getTaskById(id: string): Task {
     const existingTask = this.tasks.find((task) => task.id === id);
     if (!existingTask) {
-      throw new NotFoundException(`task with id ${id} not found`);
+      throw new NotFoundException(`Task with ID:- ${id} Not found`);
     } else {
       return existingTask;
     }
@@ -46,7 +46,8 @@ export class TasksService {
     return task;
   }
   deleteTask(id: string): void {
-    this.tasks = this.tasks.filter((task) => task.id !== id);
+    const existingTask = this.getTaskById(id);
+    this.tasks = this.tasks.filter((task) => task.id !== existingTask.id);
   }
   updateTaskStatus(id: string, status: TasksStatus): Task {
     const task = this.getTaskById(id);
