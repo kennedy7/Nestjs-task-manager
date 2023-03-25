@@ -1,6 +1,10 @@
+import { IsOptional } from 'class-validator';
 import { TasksStatus } from '../tasks.model';
 
-export interface GetTaskFilterDto {
+export class GetTaskFilterDto {
+  @IsOptional()
   status: TasksStatus;
+
+  @IsOptional()
   search: string;
 }
