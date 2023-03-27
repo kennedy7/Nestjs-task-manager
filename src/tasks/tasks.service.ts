@@ -3,9 +3,14 @@ import { TasksStatus } from './task-status.enum';
 import { CreateTaskDto } from './dto/create.task.dto';
 import { GetTaskFilterDto } from './dto/get-task-filter.dto';
 import { NotFoundException } from '@nestjs/common/exceptions';
-
+import { TaskRepository } from './task.repository';
+import { InjectRepository } from '@nestjs/typeorm';
 @Injectable()
 export class TasksService {
+  constructor(
+    @InjectRepository(TaskRepository)
+    private taskRepository: TaskRepository,
+  ) {}
   // getAllTasks(): Task[] {
   //   return this.tasks;
   // }
