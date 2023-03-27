@@ -44,6 +44,8 @@ export class TasksService {
     const task = new Task();
     task.title = title;
     task.description = description;
+    task.status = TasksStatus.OPEN;
+    task.save();
   }
   // createTask(createTaskDto: CreateTaskDto) {
   //   const { title, description } = createTaskDto;
