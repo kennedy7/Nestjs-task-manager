@@ -9,7 +9,7 @@ import { Task } from './task.entity';
 @Injectable()
 export class TasksService {
   constructor(
-    @InjectRepository(Task)
+    @InjectRepository(TaskRepository)
     private taskRepository: TaskRepository,
   ) {}
   // getAllTasks(): Task[] {
@@ -40,13 +40,7 @@ export class TasksService {
   }
 
   async createTask(createTaskDto: CreateTaskDto): Promise<Task> {
-    const { title, description } = createTaskDto;
-    const task = new Task();
-    task.title = title;
-    task.description = description;
-    task.status = TasksStatus.OPEN;
-    await task.save();
-    return task;
+    return this.taskRepository.createTask(createTaskDto);
   }
   // createTask(createTaskDto: CreateTaskDto) {
   //   const { title, description } = createTaskDto;
