@@ -6,8 +6,8 @@ import { TaskRepository } from './task.repository';
 import { Task } from './task.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Task])],
+  imports: [TypeOrmModule.forFeature([TaskRepository])],
   controllers: [TasksController],
-  providers: [TasksService, TaskRepository],
+  providers: [TasksService],
 })
 export class TasksModule {}
