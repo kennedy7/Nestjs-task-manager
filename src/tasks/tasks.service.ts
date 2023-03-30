@@ -29,21 +29,7 @@ export class TasksService {
   async createTask(createTaskDto: CreateTaskDto): Promise<Task> {
     return this.taskRepository.createTask(createTaskDto);
   }
-  // createTask(createTaskDto: CreateTaskDto) {
-  //   const { title, description } = createTaskDto;
-  //   const task: Task = {
-  //     id: uuid(),
-  //     title,
-  //     description,
-  //     status: TasksStatus.OPEN,
-  //   };
-  //   this.tasks.push(task);
-  //   return task;
-  // }
-  // deleteTask(id: string): void {
-  //   const existingTask = this.getTaskById(id);
-  //   this.tasks = this.tasks.filter((task) => task.id !== existingTask.id);
-  // }
+
   async deleteTask(id: number): Promise<void> {
     const result = await this.taskRepository.delete(id);
     if (result.affected === 0) {
