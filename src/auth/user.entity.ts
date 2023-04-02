@@ -10,10 +10,4 @@ export class User extends BaseEntity {
 
   @Column()
   password: string;
-
-  @Column()
-  password_comfirm: string;
-
-  @Column()
-  user: string;
 }
