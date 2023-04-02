@@ -15,8 +15,9 @@ import { AuthCredentialsDto } from './dto/auth-credentials.dto';
 export class AuthController {
   constructor(private authService: AuthService) {}
   @Post('signup')
-  @UsePipes(ValidationPipe)
-  signUp(@Body() authcredentialDto: AuthCredentialsDto): Promise<void> {
+  signUp(
+    @Body(ValidationPipe) authcredentialDto: AuthCredentialsDto,
+  ): Promise<void> {
     return this.authService.signup(authcredentialDto);
   }
 }
