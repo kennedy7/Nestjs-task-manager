@@ -1,14 +1,7 @@
 import { Controller } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { ValidationPipe } from '@nestjs/common/pipes';
-import {
-  Body,
-  Param,
-  Post,
-  Delete,
-  Query,
-  UsePipes,
-} from '@nestjs/common/decorators';
+import { Body, Param, Post, Delete, Query } from '@nestjs/common/decorators';
 import { AuthCredentialsDto } from './dto/auth-credentials.dto';
 
 @Controller('auth')
