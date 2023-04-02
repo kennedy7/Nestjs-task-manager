@@ -1,11 +1,4 @@
-import {
-  IsString,
-  Matches,
-  MaxLength,
-  MinLength,
-  minLength,
-} from 'class-validator';
-import { Unique } from 'typeorm';
+import { IsString, Matches, MaxLength, MinLength } from 'class-validator';
 
 export class AuthCredentialsDto {
   @IsString()
@@ -20,6 +13,5 @@ export class AuthCredentialsDto {
     message:
       'password must contain an UpperCase, Lowercase, Number and/or a Special character',
   })
-  //   (/((?=.*\d) | (?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/)
   password: string;
 }
