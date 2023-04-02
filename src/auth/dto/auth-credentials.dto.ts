@@ -1,11 +1,13 @@
-import { IsNotEmpty } from 'class-validator';
+import { IsString, MaxLength, MinLength, minLength } from 'class-validator';
 import { Unique } from 'typeorm';
 
 export class AuthCredentialsDto {
-  @Unique()
-  @IsNotEmpty()
+  @IsString()
+  @MinLength(6)
+  @MaxLength(15)
   username: string;
 
-  @IsNotEmpty()
+  @MinLength(7)
+  @MaxLength(30)
   password: string;
 }
