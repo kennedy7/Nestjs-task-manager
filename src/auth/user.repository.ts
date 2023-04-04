@@ -28,7 +28,9 @@ export class UserRepository extends Repository<User> {
     }
   }
 
-  async validateUserPaassword(authCredentialsDto: AuthCredentialsDto) {
+  async validateUserPaassword(
+    authCredentialsDto: AuthCredentialsDto,
+  ): Promise<string> {
     const { username, password } = authCredentialsDto;
     const user = this.findOne({ username });
     return;
