@@ -28,7 +28,7 @@ export class UserRepository extends Repository<User> {
     }
   }
 
-  async validateUserPaassword(
+  async validateUserPassword(
     authCredentialsDto: AuthCredentialsDto,
   ): Promise<string> {
     const { username, password } = authCredentialsDto;
