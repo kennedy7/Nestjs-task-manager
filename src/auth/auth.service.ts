@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { AuthCredentialsDto } from './dto/auth-credentials.dto';
 import { UserRepository } from './user.repository';
-
+import { UnauthorizedException } from '@nestjs/common';
 @Injectable()
 export class AuthService {
   constructor(
@@ -13,9 +13,11 @@ export class AuthService {
     return this.userRepository.signUp(authCredentialsDto);
   }
   async signIn(authCredentialsDto: AuthCredentialsDto) {
-    const result = await this.userRepository.validateUserPassword(
+    const username = await this.userRepository.validateUserPassword(
       authCredentialsDto,
     );
-    console.log(result);
+    if (!username) {
+      throw new UnauthorizedException('Invalid Credentials');
+    }
   }
 }
