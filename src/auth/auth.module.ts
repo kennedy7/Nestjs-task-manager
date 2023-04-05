@@ -3,9 +3,14 @@ import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
 import { TypeOrmModule } from '@nestjs/typeorm/dist';
 import { UserRepository } from './user.repository';
-
+import { JwtModule } from '@nestjs/jwt';
+import { PassportModule } from '@nestjs/passport';
 @Module({
-  imports: [TypeOrmModule.forFeature([UserRepository])],
+  imports: [
+    PassportModule.register({}),
+    JwtModule.register({}),
+    TypeOrmModule.forFeature([UserRepository]),
+  ],
   controllers: [AuthController],
   providers: [AuthService],
 })
