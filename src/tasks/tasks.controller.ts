@@ -40,7 +40,7 @@ export class TasksController {
     @Body(ValidationPipe) createTaskDto: CreateTaskDto,
     @GetUser() user: User,
   ): Promise<Task> {
-    return this.taskService.createTask(createTaskDto);
+    return this.taskService.createTask(createTaskDto, user);
   }
 
   @Delete(':id')
