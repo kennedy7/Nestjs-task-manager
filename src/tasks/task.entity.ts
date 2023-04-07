@@ -4,7 +4,6 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
-  ManyToMany,
   ManyToOne,
 } from 'typeorm';
 import { TasksStatus } from './task-status.enum';
