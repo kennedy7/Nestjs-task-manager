@@ -4,7 +4,6 @@ import {
   PrimaryGeneratedColumn,
   Column,
   Unique,
-  ManyToOne,
   OneToMany,
 } from 'typeorm';
 import * as bcrypt from 'bcrypt';
