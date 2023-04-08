@@ -1,4 +1,3 @@
-import { User } from 'src/auth/user.entity';
 import {
   BaseEntity,
   Entity,
@@ -6,6 +5,7 @@ import {
   Column,
   ManyToOne,
 } from 'typeorm';
+import { User } from '../auth/user.entity';
 import { TasksStatus } from './task-status.enum';
 
 @Entity()
