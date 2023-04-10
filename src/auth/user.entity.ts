@@ -5,6 +5,7 @@ import {
   Column,
   Unique,
   OneToMany,
+  JoinColumn,
 } from 'typeorm';
 import * as bcrypt from 'bcrypt';
 import { Task } from 'src/tasks/task.entity';

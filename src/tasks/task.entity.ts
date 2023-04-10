@@ -4,6 +4,7 @@ import {
   PrimaryGeneratedColumn,
   Column,
   ManyToOne,
+  JoinColumn,
 } from 'typeorm';
 import { User } from '../auth/user.entity';
 import { TasksStatus } from './task-status.enum';
@@ -24,5 +25,6 @@ export class Task extends BaseEntity {
 
   //assigning task to the creator(user)
   @ManyToOne((type) => User, (user) => user.tasks, { eager: false })
+  @JoinColumn([{ name: 'userId', referencedColumnName: 'id' }])
   user: User;
 }
