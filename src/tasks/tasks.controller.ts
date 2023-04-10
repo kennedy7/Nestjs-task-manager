@@ -7,8 +7,8 @@ import {
   Query,
   UseGuards,
 } from '@nestjs/common/decorators';
-import { ParseIntPipe, ValidationPipe } from '@nestjs/common/pipes';
 import { AuthGuard } from '@nestjs/passport';
+import { ParseIntPipe, ValidationPipe } from '@nestjs/common/pipes';
 import { GetUser } from 'src/auth/get-user-decorator';
 import { User } from 'src/auth/user.entity';
 import { CreateTaskDto } from './dto/create.task.dto';
