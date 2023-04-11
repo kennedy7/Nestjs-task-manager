@@ -12,7 +12,7 @@ export class TaskRepository extends Repository<Task> {
     const query = this.createQueryBuilder('task');
     query.where('task.userId = :userId', { userId: user.id });
     if (status) {
-      query.andWhere('task.status = :statuss', { status });
+      query.andWhere('task.status = :status', { status });
     }
     if (search) {
       query.andWhere(
