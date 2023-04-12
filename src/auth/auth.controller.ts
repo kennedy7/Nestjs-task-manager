@@ -1,5 +1,4 @@
 import { Controller, UseGuards } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
 import { AuthService } from './auth.service';
 import { ValidationPipe } from '@nestjs/common/pipes';
 import { Body, Post } from '@nestjs/common/decorators';
