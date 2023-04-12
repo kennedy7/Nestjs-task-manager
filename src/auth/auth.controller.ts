@@ -10,6 +10,7 @@ import { User } from './user.entity';
 @Controller('auth')
 export class AuthController {
   constructor(private authService: AuthService) {}
+
   @Post('signup')
   signUp(
     @Body(ValidationPipe) authcredentialsDto: AuthCredentialsDto,
@@ -21,10 +22,5 @@ export class AuthController {
     @Body(ValidationPipe) authcredentialsDto: AuthCredentialsDto,
   ): Promise<{ token: string }> {
     return this.authService.signIn(authcredentialsDto);
-  }
-  @Post('/test')
-  @UseGuards(AuthGuard())
-  test(@GetUser() user: User) {
-    console.log(user);
   }
 }
