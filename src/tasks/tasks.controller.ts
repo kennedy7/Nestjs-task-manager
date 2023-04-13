@@ -28,7 +28,7 @@ export class TasksController {
     @Query(ValidationPipe) filterDto: GetTaskFilterDto,
     @GetUser() user: User,
   ): Promise<Task[]> {
-    return this.taskService.getTasks(filterDto, user);
+    return this.taskService.getTasks(filterDto);
   }
 
   @Get(':id')
