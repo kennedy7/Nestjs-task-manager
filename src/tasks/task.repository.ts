@@ -12,7 +12,7 @@ export class TaskRepository extends Repository<Task> {
   async getTasks(filterDto: GetTaskFilterDto, user: User): Promise<Task[]> {
     const { status, search } = filterDto;
     const query = this.createQueryBuilder('task');
-    query.where('task.userId = :userId', { userId: user.id });
+    query.where('task.userIdk = :userId', { userId: user.id });
     if (status) {
       query.andWhere('task.status = :status', { status });
     }
@@ -22,8 +22,16 @@ export class TaskRepository extends Repository<Task> {
         { search: `%${search}%` },
       );
     }
-    const tasks = await query.getMany();
-    return tasks;
+    try {
+      const tasks = await query.getMany();
+      return tasks;
+    } catch (error) {
+      this.logger.error(
+        `failed to retrieve tasks for user ${
+          user.username
+        }. Filters: ${JSON.stringify(filterDto)} `,
+      );
+    }
   }
 
   async createTask(createTaskDto: CreateTaskDto, user: User): Promise<Task> {
