@@ -30,6 +30,7 @@ export class TaskRepository extends Repository<Task> {
         `failed to retrieve tasks for user ${
           user.username
         }. Filters: ${JSON.stringify(filterDto)} `,
+        error.stack,
       );
     }
   }
