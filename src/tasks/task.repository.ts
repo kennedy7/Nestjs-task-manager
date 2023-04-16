@@ -4,7 +4,7 @@ import { CreateTaskDto } from './dto/create.task.dto';
 import { TasksStatus } from './task-status.enum';
 import { GetTaskFilterDto } from './dto/get-task-filter.dto';
 import { User } from '../auth/user.entity';
-import { Logger } from '@nestjs/common';
+import { InternalServerErrorException, Logger } from '@nestjs/common';
 
 @EntityRepository(Task)
 export class TaskRepository extends Repository<Task> {
@@ -32,6 +32,7 @@ export class TaskRepository extends Repository<Task> {
         }. Filters: ${JSON.stringify(filterDto)} `,
         error.stack,
       );
+      throw new InternalServerErrorException();
     }
   }
 
