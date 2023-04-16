@@ -5,5 +5,5 @@ db:
   database: 'taskmanagement'
   synchronize: true
 
-  jwt:
- secret: 'MyNewSecret'
+jwt:
+  secret: 'MyNewSecret'

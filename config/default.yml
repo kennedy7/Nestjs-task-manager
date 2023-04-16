@@ -1,5 +1,5 @@
 server:
-  port: 3500
+  port: 3501
 
 db:
   type: 'postgres'
