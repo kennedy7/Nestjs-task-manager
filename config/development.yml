@@ -1,0 +1,9 @@
+db:
+  host: 'localhost'
+  username: 'postgres'
+  password: 'kennedy'
+  database: 'taskmanagement'
+  synchronize: true
+
+  jwt:
+ secret: 'MyNewSecret'
