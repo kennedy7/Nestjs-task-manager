@@ -43,7 +43,12 @@ export class TaskRepository extends Repository<Task> {
     task.description = description;
     task.status = TasksStatus.OPEN;
     task.user = user;
-    await task.save();
+
+    try {
+      await task.save();
+    } catch (error) {
+      throw new InternalServerErrorException();
+    }
 
     delete task.user;
 
