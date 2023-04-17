@@ -7,6 +7,9 @@ import { User } from './user.entity';
 import { UserRepository } from './user.repository';
 import * as dotenv from 'dotenv';
 dotenv.config();
+import * as config from 'config';
+
+const jwtConfig = config.get('jwt');
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
