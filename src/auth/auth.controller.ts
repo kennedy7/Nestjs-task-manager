@@ -1,4 +1,4 @@
-import { Controller, UseGuards } from '@nestjs/common';
+import { Controller } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { ValidationPipe } from '@nestjs/common/pipes';
 import { Body, Post } from '@nestjs/common/decorators';
